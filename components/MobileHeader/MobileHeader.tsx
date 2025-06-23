@@ -1,7 +1,10 @@
 import type { PropsWithChildren } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { ThemedView } from '@/components/ThemedView';
+import React from 'react';
+import { Avatar, AvatarFallbackText } from '../ui/avatar';
+import { Heading } from '../ui/heading';
 
 const HEADER_HEIGHT = 250;
 
@@ -13,12 +16,14 @@ export const MobileHeader = (props: MobileHeaderProps) => {
   const { title } = props;
 
   return (
-    <ThemedView style={styles.container}>
+    <ThemedView style={styles.container} className='flex flex-row justify-between items-center px-4 py-2'>
       <View>
-        <Text>{title}</Text>
+        <Heading>{title}</Heading>
       </View>
       <View>
-        <Text>LT</Text>
+        <Avatar size="md">
+          <AvatarFallbackText>Jane Doe</AvatarFallbackText>
+        </Avatar>
       </View>
     </ThemedView>
   );

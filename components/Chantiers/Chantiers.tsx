@@ -1,52 +1,102 @@
+import { CheckIcon } from "@/components/ui/icon";
+import { Text } from "@/components/ui/text";
 import React, { PropsWithChildren } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { Chantier } from "../Chantier";
-import { RadioField } from "../RadioField";
+import { Box } from "../ui/box";
+import { Todo, TodoIcon, TodoIndicator, TodoLabel } from "../ui/todo";
 
 type ChantiersProps = PropsWithChildren<object>;
 
 export const Chantiers = (props: ChantiersProps) => {
-  const { children } = props;
-
-  const getCurrentDate=()=>{
-    const today = new Date();
-    const formattedDate = today.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
-
-    return formattedDate;
-  }
-
 	return (
-    <View>
-      <View 
-        style={{
-          flexDirection: "row",
-          alignItems: "flex-start",
-          marginBottom: 24,
-        }}>
-        <Text 
-          style={{
-            color: "#1C2A3B",
-            marginLeft: 16,
-          }}>
-          Aujourd’hui - { getCurrentDate() }
-        </Text>
-        <View 
-          style={{
-            width: 1,
-            height: 24,
-          }}>
-        </View>
-      </View>
-      <View >
+    <View className="px-4">
+      <View className="flex flex-col gap-6">
         <Chantier title="Chantier A" description="123 Rue de la République, 75001 Paris">
-          <RadioField label="Maintenance compresseur A" hint="Vérifier pression et température" />
-          <RadioField label="Inspection de sécurité" hint="Contrôler les issues de secours" defaultChecked={true} />
-          <RadioField label="Rapport d’intervention" hint="Déclarer l’incident et clôturer" />
+          <Box>
+            <Todo value={"maintenance-compresseur-a"}>
+              <TodoIndicator>
+                <TodoIcon as={CheckIcon} />
+              </TodoIndicator>
+              <TodoLabel>Maintenance compresseur A</TodoLabel>
+            </Todo>
+            <Text size="sm" className="ml-7">
+              Vérifier pression et température
+            </Text>
+          </Box>
+
+          <Box>
+            <Todo defaultIsChecked={true} value={"inspection-de-securite"}>
+              <TodoIndicator>
+                <TodoIcon as={CheckIcon} />
+              </TodoIndicator>
+              <TodoLabel>Inspection de sécurité</TodoLabel>
+            </Todo>
+            <Text size="sm" className="ml-7">
+              Contrôler les issues de secours
+            </Text>
+          </Box>
+
+          <Box>
+            <Todo value={"rapport-d-intervention"}>
+              <TodoIndicator>
+                <TodoIcon as={CheckIcon} />
+              </TodoIndicator>
+              <TodoLabel>Rapport d’intervention</TodoLabel>
+            </Todo>
+            <Text size="sm" className="ml-7">
+              Déclarer l’incident et clôturer
+            </Text>
+          </Box>
+
+          <Box>
+            <Todo value={"rapport-d-intervention"}>
+              <TodoIndicator>
+                <TodoIcon as={CheckIcon} />
+              </TodoIndicator>
+              <TodoLabel>Rapport d’intervention</TodoLabel>
+            </Todo>
+            <Text size="sm" className="ml-7">
+              Déclarer l’incident et clôturer
+            </Text>
+          </Box>
         </Chantier>
         <Chantier title="Chantier B" description="456 Avenue des Champs-Élysées, 75008 Paris">
-          <RadioField label="Maintenance compresseur B" hint="Vérifier pression et température" />
-          <RadioField label="Inspection de sécurité" hint="Contrôler les issues de secours" />
-          <RadioField label="Rapport d’intervention" hint="Déclarer l’incident et clôturer" />
+          <Box>
+            <Todo value={"maintenance-compresseur-a"}>
+              <TodoIndicator>
+                <TodoIcon as={CheckIcon} />
+              </TodoIndicator>
+              <TodoLabel>Maintenance compresseur A</TodoLabel>
+            </Todo>
+            <Text size="sm" className="ml-7">
+              Vérifier pression et température
+            </Text>
+          </Box>
+
+          <Box>
+            <Todo defaultIsChecked={true} value={"inspection-de-securite"}>
+              <TodoIndicator>
+                <TodoIcon as={CheckIcon} />
+              </TodoIndicator>
+              <TodoLabel>Inspection de sécurité</TodoLabel>
+            </Todo>
+            <Text size="sm" className="ml-7">
+              Contrôler les issues de secours
+            </Text>
+          </Box>
+
+          <Box>
+            <Todo value={"rapport-d-intervention"}>
+              <TodoIndicator>
+                <TodoIcon as={CheckIcon} />
+              </TodoIndicator>
+              <TodoLabel>Rapport d’intervention</TodoLabel>
+            </Todo>
+            <Text size="sm" className="ml-7">
+              Déclarer l’incident et clôturer
+            </Text>
+          </Box>
         </Chantier>
       </View>
     </View>
