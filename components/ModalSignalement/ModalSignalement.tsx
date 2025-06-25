@@ -8,10 +8,9 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
-  ModalHeader,
+  ModalHeader
 } from "../ui/modal";
-import { Text } from "../ui/text";
+import { Textarea, TextareaInput } from "../ui/textarea";
 
 type ModalSignalementProps = {
   isOpen: boolean;
@@ -20,12 +19,12 @@ type ModalSignalementProps = {
 
 export const ModalSignalement = ({ isOpen, onClose }: ModalSignalementProps) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="md">
+    <Modal isOpen={isOpen} onClose={onClose} size="lg">
       <ModalBackdrop />
       <ModalContent>
         <ModalHeader className="flex justify-between items-center">
           <Heading size="md" className="text-typography-950">
-            Invite your team
+            Signaler un problème
           </Heading>
           <ModalCloseButton onPress={onClose}>
             <Icon
@@ -36,22 +35,18 @@ export const ModalSignalement = ({ isOpen, onClose }: ModalSignalementProps) => 
           </ModalCloseButton>
         </ModalHeader>
 
-        <ModalBody>
-          <Text size="sm" className="text-typography-500">
-            Elevate user interactions with our versatile modals. Seamlessly
-            integrate notifications, forms, and media displays. Make an impact
-            effortlessly.
-          </Text>
+        <ModalBody className="mt-6">
+          <Textarea size="md">
+            <TextareaInput
+              placeholder="Décrivez votre problème..."
+            />
+          </Textarea>
         </ModalBody>
 
-        <ModalFooter>
-          <Button variant="outline" action="secondary" onPress={onClose}>
-            <ButtonText>Cancel</ButtonText>
-          </Button>
-          <Button onPress={onClose}>
-            <ButtonText>Explore</ButtonText>
-          </Button>
-        </ModalFooter>
+
+        <Button size="md" variant="solid" action="primary" onPress={onClose}>
+          <ButtonText>Envoyer</ButtonText>
+        </Button>
       </ModalContent>
     </Modal>
   );
