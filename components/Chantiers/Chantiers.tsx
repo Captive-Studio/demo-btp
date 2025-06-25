@@ -100,7 +100,7 @@ export const Chantiers = (props: ChantiersProps) => {
           </Box>
         </Chantier>
         
-        <BoutonSignalement onPress={() => console.log("Bouton pressé")} />
+        <BoutonSignalement/>
       </View>
     </View>
 	)
