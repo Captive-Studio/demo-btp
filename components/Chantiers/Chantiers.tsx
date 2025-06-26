@@ -2,6 +2,7 @@ import { CheckIcon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import React, { PropsWithChildren } from "react";
 import { View } from "react-native";
+import { BoutonSignalement } from "../BoutonSignalement";
 import { Chantier } from "../Chantier";
 import { Box } from "../ui/box";
 import { Todo, TodoIcon, TodoIndicator, TodoLabel } from "../ui/todo";
@@ -98,6 +99,8 @@ export const Chantiers = (props: ChantiersProps) => {
             </Text>
           </Box>
         </Chantier>
+        
+        <BoutonSignalement/>
       </View>
     </View>
 	)
